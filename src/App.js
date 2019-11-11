@@ -47,9 +47,17 @@ class App extends Component {
     console.log(book)
     let copyBooks = [...this.state.books]
     copyBooks.push(book)
-    this.setState({
+    fetch(API,{
+      method: 'POST',
+      headers: {
+        "Content-Type" : 'application/json',
+        "Accept" : 'application/json'
+      },
+      body: JSON.stringify(book)
+    },
+      this.setState({
       books: copyBooks
-    })
+    }))
   }
 
 
